@@ -1,20 +1,51 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Home } from './src/screens/home';
+
+import { Inter_400Regular, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+
+
+import React from 'react';
+import { AppRegistry } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+import 'react-native-svg';
+import { expo as appName } from './app.json';
+import { ListProvider } from './src/.context/ListContext';
+
+
+SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+
+  const [loaded, error] = useFonts({
+    Inter_400Regular,
+    Inter_700Bold
+  });
+
+  useEffect(() => {
+    if (loaded || error) {
+      SplashScreen.hideAsync();
+    }
+  }, [loaded, error]);
+
+  if (!loaded && !error) {
+    return null;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <PaperProvider>
+        <ListProvider>
+          <StatusBar
+            style='light'
+            translucent
+          />
+          <Home />
+        </ListProvider>
+      </PaperProvider>
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+AppRegistry.registerComponent(appName.name, () => App);
