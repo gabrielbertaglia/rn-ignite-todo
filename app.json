@@ -26,15 +26,20 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-    [
-      "expo-font",
-      {
-        "fonts": [
-          "node_modules/@expo-google-fonts/inter/Inter_700Bold.ttf",
-          "node_modules/@expo-google-fonts/inter/Inter_400Regular.ttf"
-        ]
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/@expo-google-fonts/inter/Inter_700Bold.ttf",
+            "node_modules/@expo-google-fonts/inter/Inter_400Regular.ttf"
+          ]
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "57c1f164-74d2-4e5c-9904-56a0bbf45d5f"
       }
-    ]
-  ]
+    }
   }
 }
