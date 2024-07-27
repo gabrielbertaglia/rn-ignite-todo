@@ -1,4 +1,5 @@
-import React, { createContext, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { createContext, useEffect, useState } from "react";
 
 export interface TasksProps {
   id: string;
@@ -20,11 +21,33 @@ interface ListProviderProps {
 export const ListContext = createContext({} as ListContextProps)
 
 export function ListProvider({ children }: ListProviderProps) {
-  const [tasks, setTasks] = useState<TasksProps[]>([])
+
+  const [tasks, setTasks] = useState<TasksProps[]>([]);
   const [lastId, setLastId] = useState(0);
 
+  useEffect(() => {
+    AsyncStorage.getItem('ignite-todo-list').then(storedTasks => {
+      try {
+        const parsedTasks = storedTasks ? JSON.parse(storedTasks) : [];
+        setTasks(parsedTasks);
+      } catch (error) {
+        console.error('Erro ao parsear tasks:', error);
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    AsyncStorage.getItem('ignite-lastId').then(storedLastId => {
+      try {
+        const parsedLastId = storedLastId ? JSON.parse(storedLastId) : 0;
+        setLastId(parsedLastId);
+      } catch (error) {
+        console.error('Erro ao parsear lastId:', error);
+      }
+    });
+  }, []);
+
   function onAddTask(title: string) {
-    console.log(title)
     const newId = lastId + 1;
     setTasks(state => [...state, {
       id: newId.toString(),
@@ -41,6 +64,16 @@ export function ListProvider({ children }: ListProviderProps) {
   function onChangeTask({ id, checked }: { id: string, checked: boolean }) {
     setTasks(state => state.map(task => task.id === id ? { ...task, isChecked: checked } : { ...task }))
   }
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(tasks)
+    AsyncStorage.setItem('ignite-todo-list', stateJSON)
+  }, [tasks])
+
+  useEffect(() => {
+    const stateLastIdJSON = JSON.stringify(lastId)
+    AsyncStorage.setItem('ignite-lastId', stateLastIdJSON)
+  }, [lastId])
 
   return (
     <ListContext.Provider value={{

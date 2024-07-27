@@ -9,7 +9,6 @@ interface TodoListProps {
   task: TasksProps
 }
 
-
 export function TodoList({ task }: TodoListProps) {
   const { id, isChecked, title } = task
   const { onRemoveTask, onChangeTask } = useTasks()
@@ -19,13 +18,10 @@ export function TodoList({ task }: TodoListProps) {
   }
 
   function handleChangeTask() {
-    console.log(onChangeTask)
     onChangeTask({ id: task.id, checked: !task.isChecked });
   }
 
-
   return (
-
     <View style={[styles.container, task && { borderColor: '#333333', borderWidth: 1 }]}>
       <RadioButton onChange={handleChangeTask} checked={task.isChecked} value={`${title}-${id}`} />
       <Text style={{
