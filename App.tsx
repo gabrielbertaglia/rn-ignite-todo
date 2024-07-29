@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from "expo-status-bar";
 import { Home } from './src/screens/home';
 
 import { Inter_400Regular, Inter_700Bold, useFonts } from '@expo-google-fonts/inter';
