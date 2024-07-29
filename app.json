@@ -2,7 +2,7 @@
   "expo": {
     "name": "todo-list",
     "slug": "todo-list",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -17,10 +17,11 @@
       "jsEngine": "jsc"
     },
     "android": {
+      "versionCode": 2,
       "adaptiveIcon": {
         "backgroundColor": "#536DFE"
       },
-      "package": "com.todo_list"
+      "package": "com.br.ignite_todo_list"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -38,7 +39,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "57c1f164-74d2-4e5c-9904-56a0bbf45d5f"
+        "projectId": "c09464cd-0eb3-4199-8bd4-aabaef54470e"
       }
     }
   }
