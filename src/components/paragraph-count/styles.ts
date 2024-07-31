@@ -1,14 +1,14 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    gap: 8
+    flexDirection: 'row',
+    gap: 8,
   },
   created: {
     color: '#4EA8DE',
     // fontWeight: 'bold',
-    fontFamily: 'Inter_700Bold'
+    fontFamily: 'Inter_700Bold',
   },
   finished: {
     color: '#8284FA',
@@ -20,6 +20,6 @@ export const styles = StyleSheet.create({
     color: '#D9D9D9',
     backgroundColor: '#333333',
     fontWeight: 'bold',
-    borderRadius: 999
-  }
+    borderRadius: 999,
+  },
 })

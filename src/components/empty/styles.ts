@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,14 +7,14 @@ export const styles = StyleSheet.create({
     paddingVertical: 48,
     paddingHorizontal: 20,
     alignItems: 'center',
-    gap: 16
+    gap: 16,
   },
   noTasks: {
     fontFamily: 'Inter_700Bold',
     color: '#808080',
-    textAlign: 'center'
+    textAlign: 'center',
   },
   createTasks: {
     fontFamily: 'Inter_400Regular',
-  }
+  },
 })

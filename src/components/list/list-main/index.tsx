@@ -1,8 +1,8 @@
-import { FlatList, View } from "react-native";
-import { useTasks } from '../../../@hooks/useTasks';
-import { Empty } from "../../empty";
-import { TodoList } from "../todo-list";
-import { styles } from "./styles";
+import { FlatList, View } from 'react-native'
+import { useTasks } from '../../../@hooks/useTasks'
+import { Empty } from '../../empty'
+import { TodoList } from '../todo-list'
+import { styles } from './styles'
 
 export function ListMain() {
   const { tasks } = useTasks()
@@ -11,7 +11,7 @@ export function ListMain() {
     <View style={styles.container}>
       <FlatList
         data={tasks}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => <TodoList task={item} />}
         ListEmptyComponent={<Empty />}
       />

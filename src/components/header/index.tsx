@@ -1,12 +1,12 @@
-import { View } from "react-native";
-import { styles } from "./styles";
+import { View } from 'react-native'
+import { styles } from './styles'
 
-import LogoTodo from '../../assets/logo.svg';
+import LogoTodo from '../../assets/logo.svg'
 
 export function Header() {
-  return(
+  return (
     <View style={styles.container}>
-       <LogoTodo style={styles.logo}/>
+      <LogoTodo style={styles.logo} />
     </View>
   )
 }

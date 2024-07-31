@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { View } from "react-native";
+import { useState } from 'react'
+import { View } from 'react-native'
 import {
   MD2Colors,
   RadioButton as RadioButtonComponent,
-  TouchableRipple
-} from 'react-native-paper';
+  TouchableRipple,
+} from 'react-native-paper'
 
 interface RadioButtonProps {
   checked: boolean
@@ -13,7 +13,7 @@ interface RadioButtonProps {
 }
 
 export function RadioButton({ checked, onChange, value }: RadioButtonProps) {
-  const [selectValue, setSelectValue] = useState(value);
+  const [selectValue, setSelectValue] = useState(value)
 
   return (
     <TouchableRipple
@@ -22,19 +22,20 @@ export function RadioButton({ checked, onChange, value }: RadioButtonProps) {
         onChange()
       }}
     >
-      <View style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: 3
-      }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: 3,
+        }}
+      >
         <View pointerEvents="none">
           <RadioButtonComponent
             value={selectValue}
-
             color={MD2Colors.deepPurple800}
             uncheckedColor="#4EA8DE"
-            status={checked ? "checked" : 'unchecked'}
+            status={checked ? 'checked' : 'unchecked'}
           />
         </View>
       </View>
